@@ -55,7 +55,7 @@ gameState = 0
 
 -- use this function to perform your initial setup
 function setup()
-    viewer.mode = STANDARD --FULLSCREEN_NO_BUTTONS
+    viewer.mode = FULLSCREEN_NO_BUTTONS
     -- global constants
     Global:init()
     -- set sprite mode
