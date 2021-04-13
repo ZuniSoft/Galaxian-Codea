@@ -112,7 +112,7 @@ function Global:init()
     -- maximums
     self.MAX_ENEMY_DESCENT_SPEED = 3
     self.MAX_ENEMY_LATERAL_SPEED = 6
-    self.NUM_STARS = 35
+    self.NUM_STARS = 30
     
     -- for scoring and explosion
     self.COL_PMISSILE_BADGUY = 1
