@@ -9,6 +9,9 @@
 Global = class()
 
 function Global:init()
+    -- version
+    self.VERSION = 0.9
+    
     --screen and animation info
     self.DEFAULT_SCALE = 1.0
     self.SCALE = self.DEFAULT_SCALE
