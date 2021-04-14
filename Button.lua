@@ -15,23 +15,25 @@ function Button:init(x, y, image,...)
     self.w = 32
     self.h = 32
     self.image = image
-    self.imageWidth = nil
-    self.imageHeight = nil
     local arg = {...}
-    self.txt = arg[1]
-    self.fnt = arg[2]
-    self.fntSize = arg[3]
+    self.imageWidth = arg[1]
+    self.imageHeight = arg[2]
+    self.txt = arg[3]
+    self.fnt = arg[4]
+    self.fntSize = arg[5]
 end
 
 function Button:draw()
     if self.imageWidth then
         sprite(self.image, self.x, self.y, self.imageWidth, self.imageHeight)
+        self.w = self.imageWidth
+        self.h = self.imageHeight
     else
-        sprite(self.image, self.x, self.y)
+        sprite(self.image, self.x, self.y, self.w, self.h)
     end
     if self.txt ~= nil then
         pushStyle()
-        fill(90, 71, 71, 255)
+        fill(0, 0, 0, 255)
         font(self.fnt)
         fontSize(self.fntSize)
         text(self.txt, self.x, self.y)
@@ -48,4 +50,3 @@ function Button:touched(touch)
     end
     return false
 end
-

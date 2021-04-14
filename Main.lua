@@ -55,7 +55,7 @@ gameState = 0
 
 -- use this function to perform your initial setup
 function setup()
-    viewer.mode = FULLSCREEN_NO_BUTTONS
+    viewer.mode = STANDARD --FULLSCREEN_NO_BUTTONS
     -- global constants
     Global:init()
     -- set sprite mode
@@ -87,9 +87,9 @@ function setup()
         table.insert(stars, vec2(math.random() * Global.SCREEN_WIDTH, math.random() * Global.SCREEN_HEIGHT))
     end
     -- controls
-    rightBtn = Button(200, 150, asset.documents.Galaxian_assets.Blue_Slider_Right)
-    leftBtn = Button(100, 150, asset.documents.Galaxian_assets.Blue_Slider_Left)
-    fireBtn = Button(Global.SCREEN_WIDTH - 100,150,asset.documents.Galaxian_assets.Grey_Circle)
+    rightBtn = Button(200, 110, asset.documents.Galaxian_assets.Blue_Slider_Right, 69, 61)
+    leftBtn = Button(64, 110, asset.documents.Galaxian_assets.Blue_Slider_Left, 69, 61)
+    fireBtn = Button(Global.SCREEN_WIDTH - 132, 115, asset.documents.Galaxian_assets.Red_Circle, 64, 64)
 end
 
 -- this function gets called once every frame
