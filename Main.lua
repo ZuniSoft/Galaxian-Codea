@@ -278,8 +278,6 @@ function animate()
                             if (addToScore == 300) then
                                 table.insert(score300, vec2(s1.x, s1.y))
                             end
-
-                            
                             -- maybe we get a free guy
                             if score >= nextFreeGuy then
                                 sound(asset.documents.Galaxian_assets.freeguy)
