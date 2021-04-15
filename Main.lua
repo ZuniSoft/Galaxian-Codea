@@ -320,16 +320,16 @@ function animate()
     end
     -- may need to make an explosion 
     for j, p in pairs (explosionPoints) do
-        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 20, 20, sfEx5))
-        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 20, 20, sfEx5))
-        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 10, 10, sfEx4))
-        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 9, 9, sfEx5))
-        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 7, 7, sfEx3))
-        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 3, 3, sfEx3))
-        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 2, 2, sfEx2))
-        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 2, 2, sfEx2))
-        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 20, 20, sfEx1))
-        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 10, 10, sfEx1))
+        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 50, 50, sfEx5))
+        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 50, 50, sfEx5))
+        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 40, 40, sfEx4))
+        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 29, 29, sfEx5))
+        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 27, 27, sfEx3))
+        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 23, 23, sfEx3))
+        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 22, 22, sfEx2))
+        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 22, 22, sfEx2))
+        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 50, 50, sfEx1))
+        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 40, 40, sfEx1))
         table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 1, 1, sfEx1))
         table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 1, 1, sfEx1))
         table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 1, 1, sfEx1))
@@ -660,10 +660,10 @@ function createExImages()
     local i 
     component = 255
     for i = 1,  11, 1 do
-        img = image(20.0*Global.SCALE, 20.0*Global.SCALE)
+        img = image(50.0*Global.SCALE, 50.0*Global.SCALE)
         setContext(img)
         fill(component, 0, 0)
-        rect(0, 0, 20.0*Global.SCALE, 20.0*Global.SCALE)
+        rect(0, 0, 50.0*Global.SCALE, 50.0*Global.SCALE)
         setContext()
         sfEx5[i] = img
         component = component - 25
@@ -673,10 +673,10 @@ function createExImages()
     end
     component = 255
     for i = 1, 11, 1 do
-        img = image(15.0*Global.SCALE, 15.0*Global.SCALE)
+        img = image(40.0*Global.SCALE, 40.0*Global.SCALE)
         setContext(img)
         fill(0, component, 0)
-        rect(0, 0, 15.0*Global.SCALE, 15.0*Global.SCALE)
+        rect(0, 0, 40.0*Global.SCALE, 40.0*Global.SCALE)
         setContext()
         sfEx4[i] = img
         component = component - 25
@@ -686,10 +686,10 @@ function createExImages()
     end
     component = 255
     for i = 1, 11, 1 do
-        img = image(10.0*Global.SCALE, 10.0*Global.SCALE)
+        img = image(29.0*Global.SCALE, 29.0*Global.SCALE)
         setContext(img)
         fill(0, 0, component)
-        rect(0, 0, 10.0*Global.SCALE, 10.0*Global.SCALE)
+        rect(0, 0, 29.0*Global.SCALE, 29.0*Global.SCALE)
         setContext()
         sfEx3[i] = img
         component = component - 25
@@ -699,10 +699,10 @@ function createExImages()
     end
     component = 255
     for i = 1, 11, 1 do
-        img = image(9.0*Global.SCALE, 9.0*Global.SCALE)
+        img = image(28.0*Global.SCALE, 28.0*Global.SCALE)
         setContext(img)
         fill(component, 0, component)
-        rect(0, 0, 9.0*Global.SCALE, 9.0*Global.SCALE)
+        rect(0, 0, 28.0*Global.SCALE, 28.0*Global.SCALE)
         setContext()
         sfEx2[i] = img
         component = component - 25
@@ -881,14 +881,16 @@ function touched(touch)
         end
     else
         if touch.state == BEGAN then
-            if gameState == Global.GSTATE_PAUSED then
-                music.stop()
-                gameState = Global.GSTATE_PLAYING
-            elseif gameState == Global.GSTATE_PLAYING then
-                gameState = Global.GSTATE_PAUSED
-                music(asset.documents.Galaxian_assets.muzak, true)
-            else
-                initNewGame()
+            if touch.y > 300 then
+                if gameState == Global.GSTATE_PAUSED then
+                    music.stop()
+                    gameState = Global.GSTATE_PLAYING
+                elseif gameState == Global.GSTATE_PLAYING then
+                    gameState = Global.GSTATE_PAUSED
+                    music(asset.documents.Galaxian_assets.muzak, true)
+                else
+                    initNewGame()
+                end
             end
         end
     end
