@@ -18,7 +18,7 @@ function ExplosionPieceSprite:init(x, y, w, h, f)
     self.alive = true
     self.type = 0
     self.classType = "ExplosionPieceSprite"
-    self.MAX_SPEED = 5.0 * Global.SCALE
+    self.MAX_SPEED = 10.0 * Global.SCALE
     self.s = (math.random(0) * (self.MAX_SPEED - 2.0)) + 2
     self.deg = (math.random(0) * 360.0)
     self.rad = self.deg * 3.14 / 180.0

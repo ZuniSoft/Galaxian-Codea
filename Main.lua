@@ -58,8 +58,9 @@ function setup()
     viewer.mode = FULLSCREEN_NO_BUTTONS
     -- global constants
     Global:init()
-    -- set sprite mode
+    -- set image modes
     spriteMode(CORNER)
+    ellipseMode(CORNER)
     -- scale elements
     scaleScreenElements(Global.DEFAULT_SCALE)
     -- initial game state
@@ -320,18 +321,18 @@ function animate()
     end
     -- may need to make an explosion 
     for j, p in pairs (explosionPoints) do
+        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 30, 30, sfEx5))
+        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 30, 30, sfEx5))
+        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 25, 25, sfEx4))
         table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 25, 25, sfEx5))
-        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 25, 25, sfEx5))
-        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 20, 20, sfEx4))
-        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 20, 20, sfEx5))
-        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 15, 15, sfEx3))
-        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 15, 15, sfEx3))
-        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 10, 10, sfEx2))
-        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 10, 10, sfEx2))
+        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 20, 20, sfEx3))
+        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 20, 20, sfEx3))
+        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 15, 15, sfEx2))
+        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 15, 15, sfEx2))
+        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 10, 10, sfEx1))
+        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 10, 10, sfEx1))
         table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 5, 5, sfEx1))
         table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 5, 5, sfEx1))
-        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 1, 1, sfEx1))
-        table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 1, 1, sfEx1))
         table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 1, 1, sfEx1))
         table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 1, 1, sfEx1))
         table.insert(sprites, ExplosionPieceSprite(p.x, p.y, 1, 1, sfEx1))
@@ -660,10 +661,10 @@ function createExImages()
     local i 
     component = 255
     for i = 1,  11, 1 do
-        img = image(25.0*Global.SCALE, 25.0*Global.SCALE)
+        img = image(30.0*Global.SCALE, 30.0*Global.SCALE)
         setContext(img)
         fill(component, 0, 0)
-        ellipse(0, 0, 20.0*Global.SCALE, 20.0*Global.SCALE)
+        ellipse(0, 0, 29.0*Global.SCALE, 29.0*Global.SCALE)
         setContext()
         sfEx5[i] = img
         component = component - 25
@@ -673,10 +674,10 @@ function createExImages()
     end
     component = 255
     for i = 1, 11, 1 do
-        img = image(20.0*Global.SCALE, 20.0*Global.SCALE)
+        img = image(25.0*Global.SCALE, 25.0*Global.SCALE)
         setContext(img)
         fill(0, component, 0)
-        ellipse(0, 0, 15.0*Global.SCALE, 15.0*Global.SCALE)
+        ellipse(0, 0, 24.0*Global.SCALE, 24.0*Global.SCALE)
         setContext()
         sfEx4[i] = img
         component = component - 25
@@ -686,10 +687,10 @@ function createExImages()
     end
     component = 255
     for i = 1, 11, 1 do
-        img = image(15.0*Global.SCALE, 15.0*Global.SCALE)
+        img = image(20.0*Global.SCALE, 20.0*Global.SCALE)
         setContext(img)
         fill(0, 0, component)
-        ellipse(0, 0, 10.0*Global.SCALE, 10.0*Global.SCALE)
+        ellipse(0, 0, 19.0*Global.SCALE, 19.0*Global.SCALE)
         setContext()
         sfEx3[i] = img
         component = component - 25
@@ -699,10 +700,10 @@ function createExImages()
     end
     component = 255
     for i = 1, 11, 1 do
-        img = image(10.0*Global.SCALE, 10.0*Global.SCALE)
+        img = image(15.0*Global.SCALE, 15.0*Global.SCALE)
         setContext(img)
         fill(component, 0, component)
-        ellipse(0, 0, 5.0*Global.SCALE, 5.0*Global.SCALE)
+        ellipse(0, 0, 14.0*Global.SCALE, 14.0*Global.SCALE)
         setContext()
         sfEx2[i] = img
         component = component - 25
